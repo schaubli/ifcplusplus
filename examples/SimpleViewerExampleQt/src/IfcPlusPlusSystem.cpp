@@ -16,6 +16,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OU
 */
 
 #include <regex>
+#include <QOpenGLContext>
 #include <osg/Group>
 #include <osg/Material>
 #include <osgViewer/ViewerEventHandlers>

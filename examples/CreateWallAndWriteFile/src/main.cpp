@@ -1,6 +1,9 @@
 #include <fstream>
 #include <sstream>
 
+#include <locale>
+#include <codecvt>
+
 #include <ifcpp/model/BuildingModel.h>
 #include <ifcpp/reader/ReaderUtil.h>
 #include <ifcpp/writer/WriterSTEP.h>
@@ -676,6 +679,13 @@ int main()
 
 	// write IFC file in STEP format
 	std::wstring file_path = L"SimpleWall.ifc";
+
+	//setup converter
+	using convert_type = std::codecvt_utf8<wchar_t>;
+	std::wstring_convert<convert_type, wchar_t> converter;
+	//use converter (.to_bytes: wstr->str, .from_bytes: str->wstr)
+	std::string file_path_str = converter.to_bytes( file_path );
+
 	ifc_model->initFileHeader(file_path);
 	std::stringstream stream;
 
@@ -683,7 +693,7 @@ int main()
 	step_writer->writeModelToStream(stream, ifc_model);
 	ifc_model->clearIfcModel();
 
-	std::ofstream ofs(file_path, std::ofstream::out);
+	std::ofstream ofs(file_path_str, std::ofstream::out);
 	ofs << stream.str().c_str();
 	ofs.close();
 

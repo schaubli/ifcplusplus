@@ -17,6 +17,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OU
 
 #include <stdlib.h>
 #include <sstream>
+#include <QOpenGLContext>
 #include <osgGA/GUIEventAdapter>
 #include <osgGA/OrbitManipulator>
 #include <osgViewer/View>
