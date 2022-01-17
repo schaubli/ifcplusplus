@@ -21,8 +21,7 @@ if(USE_OPENMP)
   find_package(OpenMP)
 endif()
 
-LINK_DIRECTORIES(${CMAKE_BINARY_DIR}/IfcPlusPlus/Debug)
-LINK_DIRECTORIES(${CMAKE_BINARY_DIR}/IfcPlusPlus/${CMAKE_BUILD_TYPE})
+LINK_DIRECTORIES(${CMAKE_BINARY_DIR}/${CMAKE_BUILD_TYPE})
 
 ADD_EXECUTABLE(LoadFileExampleConsole 
     ${IFCPP_SOURCE_DIR}/examples/LoadFileExampleConsole/src/main.cpp
