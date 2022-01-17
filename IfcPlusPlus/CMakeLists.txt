@@ -63,8 +63,7 @@ add_definitions(-DIFCQUERY_AS_DYNAMIC_LIBRARY)
 add_definitions(-DIFCQUERY_LIB)
 add_library(IfcPlusPlus SHARED ${IFCPP_SOURCE_FILES})
 
-link_directories( ${CMAKE_BINARY_DIR}/IfcPlusPlus/${CMAKE_BUILD_TYPE} )
-link_directories( ${CMAKE_BINARY_DIR}/external/Carve/${CMAKE_BUILD_TYPE} )
+link_directories( ${CMAKE_BINARY_DIR}/${CMAKE_BUILD_TYPE} )
 target_link_libraries(IfcPlusPlus
   PUBLIC
     carve

@@ -29,6 +29,8 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OU
 class BuildingException : public std::exception
 {
 public:
+	std::string m_reason_str;
+
 	BuildingException( std::string reason )
 	{
 		m_reason_str = reason;
@@ -71,13 +73,14 @@ public:
 	{
 		return m_reason_str.c_str();
 	}
-
-	std::string m_reason_str;
 };
 
 class OutOfMemoryException : public std::exception
 {
 public:
+
+	std::string m_reason_str;
+	
 	OutOfMemoryException()
 	{
 		m_reason_str = "Out of memory";
@@ -95,6 +98,4 @@ public:
 	{
 		return m_reason_str.c_str();
 	}
-
-	std::string m_reason_str;
 };
